@@ -2,9 +2,9 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_s3_bucket" "bucket" {
+resource "aws_s3_bucket_website_configuration" "bucket" {
   bucket = "${var.prefix}-${var.name}"
-  acl    = "public-read"
+  aws_s3_bucket_acl    = "public-read"
 
   policy = <<EOF
 {
