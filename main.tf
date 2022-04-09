@@ -1,5 +1,14 @@
-resource "aws_s3_bucket_website_configuration" "bucket" {
+resource "aws_s3_bucket" "bucket" {
   bucket = "${var.prefix}-${var.name}"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
+
+resource "aws_s3_bucket_website_configuration" "bucket" {
+  bucket = aws_s3_bucket.bucket.bucket
 
     index_document {
       suffix = "index.html"
