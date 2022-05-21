@@ -38,7 +38,7 @@ resource "aws_s3_bucket_policy" "allow_access" {
 }
 
 
-resource "aws_s3_bucket_object" "webapp" {
+resource "aws_s3_object" "webapp" {
   acl          = "public-read"
   key          = "index.html"
   bucket       = aws_s3_bucket_website_configuration.bucket.id
